@@ -1,0 +1,25 @@
+<h1>Task</h1>
+
+<div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  value="<%= @task.title %>" disabled>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  disabled><%= @task.details %></textarea>
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-text">
+    <input class="form-check-input mt-0" type="checkbox" <%= @task.completed ? "checked" : ""%> aria-label="Checkbox for following text input" disabled>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with checkbox" value="<%= @boolean_value %>" disabled>
+</div>
+
+
+<%= link_to "Back to Tasks", tasks_path, :class => "btn btn-primary"%>
+<%= link_to "Edit this Task", edit_task_path(@task.id), :class => "btn btn-info"%>
+<%= link_to "Delete this Task",
+  task_path(@task.id),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+  :class => "btn btn-danger"
+%>

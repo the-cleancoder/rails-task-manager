@@ -1,0 +1,17 @@
+<h1>Tasks</h1>
+<ul class="list-group">
+<% @tasks.each do |task| %>
+    <li class="list-group-item">
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" <%= task.completed ? "checked" : ""%> aria-label="Checkbox for following text input" disabled>
+          </div>
+        <%= link_to task_path(task) do%>
+          <input type="text" class="form-control" aria-label="Text input with checkbox"  value= "<%= task.title %>" >
+        <% end%>
+      </div>
+    </li>
+<% end %>
+</ul>
+
+<%= link_to "Creata a Task", new_task_path, :class => "btn btn-primary my-2"%>
